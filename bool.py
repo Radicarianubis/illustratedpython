@@ -2,7 +2,7 @@
 # Empty string is 'falsey' and will act as a negative
 # A string with content is 'truthy' and will act as a positive
 
-name = 'Joe'
+name = 'Ron'
 if name:
 	print("The name is {}".format(name))
 else:
