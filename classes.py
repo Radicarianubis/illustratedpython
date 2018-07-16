@@ -42,4 +42,41 @@ Chair.max_occupants
 # <class 'function'>
 # Chair.unload.__class__
 # <class 'function'>
-  
+chair = Chair(21)
+# This creates an instance of the Chair class called chair, passing the argument 21 as the id
+# This calls the method LOAD from the class:
+print(chair.count)
+chair.load(3)
+print(chair.count)
+
+# PRIVATE AND PROTECTED
+# You can access anything within python, but there is syntax to tell you that you shouldn't:
+# Prefix the their name with an underscore _
+class CorrectChair:
+    ''' A Chair on a chairlift '''
+    max_occupants = 4
+
+    def __init__(self, id):
+        self.id = id
+        self.count = 0
+
+    def load(self, number):
+        new_val = self._check(self.count + number)
+        self.count = new_val
+
+    def unload(self, number):
+        new_val = self._check(self.count - number)
+        self.count = new_vale
+
+    def _check(self, number):
+        if number < 0 or number > self.max_occupants:
+            raise valueError('Invalid count:{}'.format(number))
+        return number
+
+# the ._check method is considered private, only the instance should access it inside the class
+# In the class, the .load and .unload moethods call the privat method. If wanted, you could call it 
+# from outside the class, but you shouldn't, as anything with an underscore should be considered
+# an implementation detail that might not exist in future versions of the class.
+
+
+
