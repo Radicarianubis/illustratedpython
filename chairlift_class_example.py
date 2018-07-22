@@ -38,7 +38,7 @@ def avg(chairs):
 in_use = []
 transported = 0
 x = 0
-number_of_riders = 200 # Chang this to limit the number of people who can enter the lift
+number_of_riders = 42  # Chang this to limit the number of people who can enter the lift
 while x != number_of_riders:
     # loading
     loading = chairs.pop(0)
@@ -54,4 +54,26 @@ while x != number_of_riders:
     print(f'Loading Chair {loading.id} Count:{loading.count} Avg:{avg(in_use):.2} Total:{transported}')
     time.sleep(.25)
     x += 1
+
+# counts the number of time the chairlift slows down since some dumbass didn't get on properly
+class StallChair(CorrectChair):
+    def __init__(self, id, is_stalled):
+        super().__init__(id)
+        self.is_stalled = is_stalled
+        self.stalls = 0
+
+    def load(self, number):
+        if self.is_stalled(number, self):
+            self.stalls += 1
+        super().load(number)
+
+def ten_percent(number, chair):
+    "Return True 10% of the time"""
+    return random.random() < .1
+
+stall42 = StallChair(42, ten_percent)
+print(stall42.stalls)
+
+
+
 
