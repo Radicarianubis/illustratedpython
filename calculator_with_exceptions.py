@@ -14,7 +14,7 @@ def get_valid_number(prompt):
 def get_valid_operator(prompt):
     while True:
         value = input(prompt)
-        if str(value) not in {'+', '-', '*', '/'}:
+        if value not in {'+', '-', '*', '/'}:
             print(f"Sorry, you entered {value} which is not a valid operator. Try again: ")
             continue
         else:
