@@ -1,4 +1,3 @@
-'''
 def find_it(seq):
     length = len(seq)
     for i in range(0, length):
@@ -11,13 +10,8 @@ def find_it(seq):
             print(f"Found, the number is {oddint}")
             return oddint
     return
-'''
-def find_it(seq):
-    result = 0
-    for x in seq:
-        result ^= x
-    print(result)
-    return(result)
+
+
 
 
 find_it([20,1,-1,2,2,3,3,5,5,1,2,4,20,4,-1,2,2])
