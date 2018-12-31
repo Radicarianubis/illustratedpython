@@ -1,7 +1,7 @@
 import sys
 import pandas as pd
 while True:
-    number = input("mm?")
+    number = input("mm? ")
     if number == 'c':
         sys.exit(0)
     else:
